@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+  <record field="available_timezones"
+          interface="plone.base.interfaces.controlpanel.IDateAndTimeSchema"
+          name="plone.available_timezones"
+  >
+    <field type="plone.registry.field.List">
+      <default />
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+                   ns0:domain="plone"
+                   ns0:translate="help_available_timezones"
+      >The timezones, which should be available for the portal. Can be set for users and events</description>
+      <missing_value />
+      <required>False</required>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+             ns0:domain="plone"
+             ns0:translate=""
+      >Available timezones</title>
+      <value_type type="plone.registry.field.Choice">
+        <vocabulary>plone.app.vocabularies.Timezones</vocabulary>
+      </value_type>
+    </field>
+    <value>
+      <element>America/Sao_Paulo</element>
+    </value>
+  </record>
+
+  <record field="portal_timezone"
+          interface="plone.base.interfaces.controlpanel.IDateAndTimeSchema"
+          name="plone.portal_timezone"
+  >
+    <field type="plone.registry.field.Choice">
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+                   ns0:domain="plone"
+                   ns0:translate="help_portal_timezone"
+      >The timezone setting of the portal. Users can set their own timezone, if available timezones are defined.</description>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+             ns0:domain="plone"
+             ns0:translate=""
+      >Portal default timezone</title>
+      <vocabulary>plone.app.vocabularies.CommonTimezones</vocabulary>
+    </field>
+    <value>America/Sao_Paulo</value>
+  </record>
+</registry>
