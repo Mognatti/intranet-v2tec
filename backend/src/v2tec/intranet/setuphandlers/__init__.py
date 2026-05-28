@@ -1,4 +1,8 @@
+from plone import api
 from plone.base.interfaces.installable import INonInstallable
+from Products.CMFPlone.WorkflowTool import WorkflowTool
+from Products.GenericSetup.tool import SetupTool
+from v2tec.intranet import logger
 from zope.interface import implementer
 
 
@@ -15,3 +19,12 @@ class HiddenProfiles:
         return [
             "v2tec.intranet.upgrades",
         ]
+
+
+def fecha_intranet(portal_setup: SetupTool):
+    """Aplica novo workflow para a intranet."""
+    portal = api.portal.get()
+    wf_tool: WorkflowTool = api.portal.get_tool("portal_workflow")
+    wf_tool.notifyCreated(portal)
+    wf_tool.updateRoleMappings()
+    logger.info("Permissões de workflow atualizadas")

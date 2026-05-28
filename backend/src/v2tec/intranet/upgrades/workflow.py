@@ -7,6 +7,8 @@ from v2tec.intranet import logger
 def upgrade_permission(portal_setup: SetupTool):
     """Upgrade all permissions follwing the new workflow."""
     message = "Permissões de workflow atualizadas seguindo o novo workflow."
+    portal = api.portal.get()
     wf_tool: WorkflowTool = api.portal.get_tool("portal_workflow")
+    wf_tool.notifyCreated(portal)
     wf_tool.updateRoleMappings()
     logger.info(message)
