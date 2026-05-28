@@ -33,6 +33,7 @@ IMAGE_TAG=latest
 IMAGE_NAME=$(IMAGE_NAME_PREFIX)-backend:$(IMAGE_TAG)
 
 PLONE_SITE_ID=Plone
+PYTHON_VERSION := $(shell echo '$(REPOSITORY_SETTINGS)' | jq -r '.backend.python_version')
 BACKEND_FOLDER=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 PLONE_VERSION := $(shell echo '$(REPOSITORY_SETTINGS)' | jq -r '.backend.base_package_version')
 EXAMPLE_CONTENT_FOLDER := $(shell echo '$(REPOSITORY_SETTINGS)' | jq -r '.backend.code_path')/setuphandlers/examplecontent
@@ -165,8 +166,7 @@ test-coverage: $(VENV_FOLDER) ## run tests with coverage
 .PHONY: build-image
 build-image:  ## Build Container Images
 	@echo "$(GREEN)==> Building image $(IMAGE_NAME) $(RESET)"
-	@docker build . -t $(IMAGE_NAME) --progress plain -f Dockerfile
-
+	@docker build . -t $(IMAGE_NAME) --build-arg PYTHON_VERSION=$(PYTHON_VERSION) --progress plain -f Dockerfile
 ############################################
 # Acceptance Tests
 ############################################
