@@ -1,28 +1,32 @@
-<!-- Raiz do arquivo ZCML (XML de configuração do Zope).
-     xmlns define os namespaces: "zope" é o padrão, "genericsetup" habilita o prefixo genericsetup: -->
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     >
 
-  <!-- Agrupa os passos de uma migração de versão.
-       profile: qual perfil está sendo migrado
-       source: versão de origem registrada no banco
-       destination: versão de destino (deve bater com metadata.xml) -->
   <genericsetup:upgradeSteps
       profile="v2tec.intranet:default"
       source="1000"
       destination="20260527001"
       >
-
-    <!-- Reimporta um step do GenericSetup no banco já existente.
-         title: descrição exibida no painel de upgrade
-         import_steps: qual step reimportar (plone.app.registry = arquivos da pasta registry/) -->
     <genericsetup:upgradeDepends
         title="Altera timezone para America/Sao_Paulo"
         import_steps="plone.app.registry"
         />
+  </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="v2tec.intranet:default"
+      source="20260527001"
+      destination="20260528001"
+      >
+    <genericsetup:upgradeDepends
+        title="Fecha a intranet"
+        import_steps="workflow"
+        />
+    <upgradeStep
+        title="Atualiza o permissionamento com o novo workflow"
+        handler=".workflow.upgrade_permission"
+        />
   </genericsetup:upgradeSteps>
 
 </configure>
