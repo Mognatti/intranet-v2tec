@@ -12,7 +12,7 @@ CURRENT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 GIT_FOLDER=$(CURRENT_DIR)/.git
 export UV_PYTHON_PREFERENCE=only-managed
 
-REPOSITORY_SETTINGS := $(shell uvx --python /home/mognatti/.pyenv/versions/3.12.12/bin/python3 repoplone settings dump)
+REPOSITORY_SETTINGS := $(shell uvx --python 3.12 repoplone settings dump)
 
 PROJECT_NAME := $(shell echo '$(REPOSITORY_SETTINGS)' | jq -r '.name')
 STACK_NAME=intranet-v2solucoes-com-br

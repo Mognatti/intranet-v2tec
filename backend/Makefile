@@ -27,7 +27,7 @@ ifeq (, $(shell which $(UV) ))
   $(error "UV=$(UV) not found in $(PATH)")
 endif
 
-REPOSITORY_SETTINGS := $(shell uvx --python /home/mognatti/.pyenv/versions/3.12.12/bin/python3 repoplone settings dump)
+REPOSITORY_SETTINGS := $(shell uvx --python 3.12 repoplone settings dump)
 IMAGE_NAME_PREFIX := $(shell echo '$(REPOSITORY_SETTINGS)' | jq -r '.container_images_prefix')
 IMAGE_TAG=latest
 IMAGE_NAME=$(IMAGE_NAME_PREFIX)-backend:$(IMAGE_TAG)
@@ -78,7 +78,7 @@ config: instance/etc/zope.ini
 .PHONY: update-constraints
 update-constraints: ## Update backend constraints
 	@echo "$(GREEN)==> Update backend constraints$(RESET)"
-	@uvx --python /home/mognatti/.pyenv/versions/3.12.12/bin/python3 repoplone deps constraints
+	@uvx --python 3.12 repoplone deps constraints
 
 .PHONY: sync
 sync: update-constraints ## Sync project dependencies
