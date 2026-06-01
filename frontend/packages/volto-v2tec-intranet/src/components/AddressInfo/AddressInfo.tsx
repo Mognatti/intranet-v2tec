@@ -36,7 +36,7 @@ const AddressInfo: React.FC<AddressInfoProps> = ({ content }) => {
       {estado && (
         <Container className="endereco-linha">
           <span className="label">Estado</span>:
-          <span className="value">{estado}</span>
+          <span className="value">{estado.title ?? estado.token}</span>
         </Container>
       )}
       {cep && (
