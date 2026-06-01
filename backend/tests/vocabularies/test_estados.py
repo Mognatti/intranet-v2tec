@@ -23,9 +23,38 @@ class TestVocabEstados:
         assert isinstance(self.vocab, SimpleVocabulary)
 
     @pytest.mark.parametrize(
-        "token",
-        ["PR", "SP", "MT"],
+        "token,title",
+        [
+            ("AC", "Acre"),
+            ("AL", "Alagoas"),
+            ("AP", "Amapá"),
+            ("AM", "Amazonas"),
+            ("BA", "Bahia"),
+            ("CE", "Ceará"),
+            ("DF", "Distrito Federal"),
+            ("ES", "Espírito Santo"),
+            ("GO", "Goiás"),
+            ("MA", "Maranhão"),
+            ("MT", "Mato Grosso"),
+            ("MS", "Mato Grosso do Sul"),
+            ("MG", "Minas Gerais"),
+            ("PA", "Pará"),
+            ("PB", "Paraíba"),
+            ("PR", "Paraná"),
+            ("PE", "Pernambuco"),
+            ("PI", "Piauí"),
+            ("RJ", "Rio de Janeiro"),
+            ("RN", "Rio Grande do Norte"),
+            ("RS", "Rio Grande do Sul"),
+            ("RO", "Rondônia"),
+            ("RR", "Roraima"),
+            ("SC", "Santa Catarina"),
+            ("SP", "São Paulo"),
+            ("SE", "Sergipe"),
+            ("TO", "Tocantins"),
+        ],
     )
-    def test_token(self, token: str):
-        """Verifica se o token existe no vocabulário."""
-        assert token in list(self.vocab.by_token)
+    def test_token(self, token: str, title: str):
+        """Verifica se o token existe no vocabulário e aponta para o estado correto."""
+        assert token in self.vocab.by_token
+        assert self.vocab.by_token[token].title == title
