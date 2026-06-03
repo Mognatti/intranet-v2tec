@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container } from '@plone/components';
-import type { Area } from 'volto-v2tec-intranet/types/content';
 
 interface ContactInfoProps {
-  content: Area;
+  content: {
+    telefone?: string;
+    email?: string;
+  };
 }
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ content }) => {

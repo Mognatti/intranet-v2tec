@@ -1,9 +1,14 @@
 import React from 'react';
 import { Container } from '@plone/components';
-import type { Area } from 'volto-v2tec-intranet/types/content';
 
 interface AddressInfoProps {
-  content: Area;
+  content: {
+    endereco?: string;
+    complemento?: string;
+    cidade?: string;
+    estado?: { token: string; title?: string };
+    cep?: string;
+  };
 }
 
 const AddressInfo: React.FC<AddressInfoProps> = ({ content }) => {
