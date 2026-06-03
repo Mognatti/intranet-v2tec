@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '@plone/components';
+import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
 import type { Pessoa } from 'volto-v2tec-intranet/types/content';
 import ContactInfo from 'volto-v2tec-intranet/components/ContactInfo/ContactInfo';
 import AddressInfo from 'volto-v2tec-intranet/components/AddressInfo/AddressInfo';
@@ -31,6 +32,14 @@ const PessoaView: React.FC<PessoaViewProps> = ({ content }) => {
       </Container>
       <ContactInfo content={content} />
       <AddressInfo content={content} />
+      {content.area && (
+        <Container narrow className="area-wrapper">
+          <span className="label">Área</span>:{' '}
+          <a href={flattenToAppURL(content.area['@id'])}>
+            {content.area.title}
+          </a>
+        </Container>
+      )}
       {content.categoria && (
         <Container narrow className="categoria-wrapper">
           <span className={`categoria categoria-${content.categoria.token}`}>

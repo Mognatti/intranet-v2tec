@@ -32,4 +32,5 @@ export interface Pessoa extends Content {
     title: string;
   };
   cep?: string;
+  area?: Area;
 }
