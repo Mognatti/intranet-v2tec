@@ -31,6 +31,13 @@ const PessoaView: React.FC<PessoaViewProps> = ({ content }) => {
       </Container>
       <ContactInfo content={content} />
       <AddressInfo content={content} />
+      {content.categoria && (
+        <Container narrow className="categoria-wrapper">
+          <span className={`categoria categoria-${content.categoria.token}`}>
+            {content.categoria.title}
+          </span>
+        </Container>
+      )}
     </Container>
   );
 };
