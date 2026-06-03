@@ -40,7 +40,7 @@ class TestArea:
 
     @pytest.mark.parametrize(
         "behavior",
-            [
+        [
             "plone.basic",
             "plone.namefromtitle",
             "plone.shortname",
@@ -55,7 +55,6 @@ class TestArea:
     )
     def test_has_behavior(self, get_behaviors, behavior):
         assert behavior in get_behaviors(CONTENT_TYPE)
-
 
     @pytest.mark.parametrize(
         "role,allowed",
