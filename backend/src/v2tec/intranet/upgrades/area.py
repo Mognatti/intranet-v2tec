@@ -1,9 +1,9 @@
-import uuid
-
 from plone import api
 from Products.GenericSetup.tool import SetupTool
 from v2tec.intranet import logger
 from v2tec.intranet.content.area import Area
+
+import uuid
 
 
 def adiciona_blocos_area(portal_setup: SetupTool):
@@ -65,8 +65,6 @@ def adiciona_blocos_area(portal_setup: SetupTool):
             uid_pessoas: bloco_pessoas,
             uid_subareas: bloco_subareas,
         }
-        area.blocks_layout = {
-            "items": existing_items + [uid_pessoas, uid_subareas]
-        }
+        area.blocks_layout = {"items": [*existing_items, uid_pessoas, uid_subareas]}
         area.reindexObject()
         logger.info(f"Blocos adicionados à área {area.absolute_url()}")
