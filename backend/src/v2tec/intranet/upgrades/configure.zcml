@@ -96,4 +96,15 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="v2tec.intranet:default"
+      source="20260608002"
+      destination="20260608003"
+      >
+    <upgradeStep
+        title="Adiciona blocos de pessoas e sub-áreas em cada Área"
+        handler=".area.adiciona_blocos_area"
+        />
+  </genericsetup:upgradeSteps>
+
 </configure>
