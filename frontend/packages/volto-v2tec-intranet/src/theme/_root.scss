@@ -28,9 +28,6 @@ a {
 }
 
 .endereco {
-  padding: $spacing-small;
-  border: 2px solid;
-  border-radius: 5px;
   margin-top: $spacing-small;
   .label {
     @include body-text-bold();
@@ -38,9 +35,6 @@ a {
 }
 
 .contato {
-  padding: $spacing-small;
-  border: 2px solid;
-  border-radius: 5px;
   .label {
     @include body-text-bold();
   }
