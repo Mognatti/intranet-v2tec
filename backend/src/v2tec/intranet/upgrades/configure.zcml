@@ -85,4 +85,15 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="v2tec.intranet:default"
+      source="20260608001"
+      destination="20260608002"
+      >
+    <genericsetup:upgradeDepends
+        title="Adiciona filtros por Área e Categoria"
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
 </configure>
