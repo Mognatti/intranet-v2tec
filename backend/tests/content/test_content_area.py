@@ -1,8 +1,11 @@
 from AccessControl import Unauthorized
+from copy import deepcopy
 from plone import api
 from plone.dexterity.fti import DexterityFTI
 from v2tec.intranet.content.area import Area
 from zope.component import createObject
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 
 import pytest
 
@@ -122,3 +125,23 @@ class TestArea:
             payload["description"] = ""
             area = api.content.create(container=container, **payload)
         assert area.exclude_from_nav is True
+
+    def test_subscriber_modified_removes_from_nav_when_description_cleared(
+        self, area_payload
+    ):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(container=self.portal, **area_payload)
+            assert area.exclude_from_nav is False
+            area.description = ""
+            notify(ObjectModifiedEvent(area))
+        assert area.exclude_from_nav is True
+
+    def test_subscriber_modified_adds_to_nav_when_description_set(self, area_payload):
+        with api.env.adopt_roles(["Manager"]):
+            payload = deepcopy(area_payload)
+            payload["description"] = ""
+            area = api.content.create(container=self.portal, **payload)
+            assert area.exclude_from_nav is True
+            area.description = "Nova descrição"
+            notify(ObjectModifiedEvent(area))
+        assert area.exclude_from_nav is False
