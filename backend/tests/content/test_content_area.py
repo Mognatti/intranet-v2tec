@@ -76,7 +76,7 @@ class TestArea:
             else:
                 with pytest.raises(Unauthorized):
                     api.content.create(container=self.portal, **area_payload)
-    
+
     def test_create_editors_group_is_created(self, area_payload):
         with api.env.adopt_roles(["Manager"]):
             area = api.content.create(container=self.portal, **area_payload)
@@ -100,6 +100,7 @@ class TestArea:
         uid = api.content.get_uuid(area)
         group_id = f"area-{uid}-editors"
         from v2tec.intranet.subscribers.area import create_editors_group
+
         create_editors_group(area)
         assert api.group.get(group_id) is not None
 
@@ -121,4 +122,3 @@ class TestArea:
             payload["description"] = ""
             area = api.content.create(container=container, **payload)
         assert area.exclude_from_nav is True
-
