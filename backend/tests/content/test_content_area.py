@@ -76,3 +76,49 @@ class TestArea:
             else:
                 with pytest.raises(Unauthorized):
                     api.content.create(container=self.portal, **area_payload)
+    
+    def test_create_editors_group_is_created(self, area_payload):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(container=self.portal, **area_payload)
+        uid = api.content.get_uuid(area)
+        group_id = f"area-{uid}-editors"
+        group = api.group.get(group_id)
+        assert group is not None
+        assert group.getProperty("title") == f"Editores da {area.title}"
+
+    def test_create_editors_group_has_editor_role(self, area_payload):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(container=self.portal, **area_payload)
+        uid = api.content.get_uuid(area)
+        group_id = f"area-{uid}-editors"
+        local_roles = area.__ac_local_roles__.get(group_id, [])
+        assert "Editor" in local_roles
+
+    def test_create_editors_group_not_duplicated(self, area_payload):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(container=self.portal, **area_payload)
+        uid = api.content.get_uuid(area)
+        group_id = f"area-{uid}-editors"
+        from v2tec.intranet.subscribers.area import create_editors_group
+        create_editors_group(area)
+        assert api.group.get(group_id) is not None
+
+    def test_subscriber_added_with_description_value(self, area_payload):
+        container = self.portal
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(
+                container=container,
+                **area_payload,
+            )
+        assert area.exclude_from_nav is False
+
+    def test_subscriber_added_without_description_value(self, area_payload):
+        from copy import deepcopy
+
+        container = self.portal
+        with api.env.adopt_roles(["Manager"]):
+            payload = deepcopy(area_payload)
+            payload["description"] = ""
+            area = api.content.create(container=container, **payload)
+        assert area.exclude_from_nav is True
+
