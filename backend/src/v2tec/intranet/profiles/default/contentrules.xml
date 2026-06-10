@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentrules>
+  <rule
+    name="move-pessoa-to-colaboradores"
+    title="Mover Pessoa para Colaboradores"
+    description="Move novos objetos do tipo Pessoa para a pasta Colaboradores"
+    enabled="True"
+    event="plone.app.contentrules.events.IObjectAddedToContainerEvent"
+    stop-after="False"
+    >
+    <conditions>
+      <condition type="plone.conditions.PortalType">
+        <property name="check_types">
+          <element>Pessoa</element>
+        </property>
+      </condition>
+    </conditions>
+    <actions>
+      <action type="plone.actions.Move">
+        <property name="target_folder">/colaboradores</property>
+      </action>
+    </actions>
+  </rule>
+  <assignment
+    location="/"
+    name="move-pessoa-to-colaboradores"
+    enabled="True"
+    bubbles="True"
+    />
+</contentrules>

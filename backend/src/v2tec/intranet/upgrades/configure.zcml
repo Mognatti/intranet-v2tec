@@ -126,4 +126,16 @@
         />
   </genericsetup:upgradeSteps>
 
+
+  <genericsetup:upgradeSteps
+      profile="v2tec.intranet:default"
+      source="20260609001"
+      destination="20260609002"
+      >
+    <genericsetup:upgradeDepends
+        title="Cria regra de conteúdo para mover Pessoa para Colaboradores"
+        import_steps="contentrules"
+        />
+  </genericsetup:upgradeSteps>
+
 </configure>
