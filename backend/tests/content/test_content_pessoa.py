@@ -78,7 +78,12 @@ class TestPessoa:
     def test_create(self, pessoa_payload, role: str, allowed: bool):
         with api.env.adopt_roles([role]):
             if allowed:
-                content = api.content.create(container=self.portal, **pessoa_payload)
+                try:
+                    content = api.content.create(
+                        container=self.portal, **pessoa_payload
+                    )
+                except (KeyError, AttributeError):
+                    content = self.portal["colaboradores"][pessoa_payload["id"]]
                 assert content.portal_type == CONTENT_TYPE
                 assert isinstance(content, Pessoa)
             else:

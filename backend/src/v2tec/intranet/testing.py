@@ -22,6 +22,15 @@ class Layer(PloneSandboxLayer):
         self.loadZCML(package=v2tec.intranet)
 
     def setUpPloneSite(self, portal):
+        from plone import api
+
+        with api.env.adopt_roles(["Manager"]):
+            api.content.create(
+                container=portal,
+                type="Folder",
+                id="colaboradores",
+                title="Colaboradores",
+            )
         applyProfile(portal, "v2tec.intranet:default")
 
 

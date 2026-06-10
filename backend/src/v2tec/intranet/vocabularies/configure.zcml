@@ -1,14 +1,25 @@
 <configure xmlns="http://namespaces.zope.org/zope">
+
   <utility
       name="v2tec.intranet.vocabulary.estados"
       component=".estados.vocab_estados"
       />
+
   <utility
       name="v2tec.intranet.vocabulary.categorias"
       component=".categorias.vocab_categorias"
       />
+
   <utility
       name="v2tec.intranet.vocabulary.areas"
       component=".areas.vocab_areas"
       />
+
+  <utility
+      name="v2tec.intranet.vocabulary.localidades"
+      component=".localidades.vocab_localidades"
+      />
+
+  <!-- -*- extra stuff goes here -*- -->
+
 </configure>

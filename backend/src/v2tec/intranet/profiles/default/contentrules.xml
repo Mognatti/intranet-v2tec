@@ -2,7 +2,7 @@
 <contentrules>
   <rule description="Move novos objetos do tipo Pessoa para a pasta Colaboradores"
         enabled="True"
-        event="plone.app.contentrules.events.IObjectAddedToContainerEvent"
+        event="zope.lifecycleevent.interfaces.IObjectAddedEvent"
         name="move-pessoa-to-colaboradores"
         stop-after="False"
         title="Mover Pessoa para Colaboradores"
