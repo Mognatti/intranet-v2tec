@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-05-28 16:55+0000\n"
+"POT-Creation-Date: 2026-06-10 17:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,243 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: v2tec.intranet\n"
 
-#: v2tec/intranet/profiles.zcml:22
+#: v2tec/intranet/vocabularies/estados.py:9
+msgid "Acre"
+msgstr ""
+
+#: v2tec/intranet/behaviors/configure.zcml:13
+msgid "Adiciona campos de informações de contato."
+msgstr ""
+
+#: v2tec/intranet/behaviors/configure.zcml:21
+msgid "Adiciona campos de informações de endereço."
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:10
+msgid "Alagoas"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:11
+msgid "Amapá"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:12
+msgid "Amazonas"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:13
+msgid "Bahia"
+msgstr ""
+
+#: v2tec/intranet/behaviors/endereco.py:45
+msgid "CEP"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/categorias.py:9
+msgid "CLT"
+msgstr ""
+
+#: v2tec/intranet/content/pessoa.py:14
+msgid "Categoria de contratação"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:14
+msgid "Ceará"
+msgstr ""
+
+#: v2tec/intranet/behaviors/endereco.py:35
+msgid "Cidade"
+msgstr ""
+
+#: v2tec/intranet/behaviors/endereco.py:29
+msgid "Complemento"
+msgstr ""
+
+#: v2tec/intranet/behaviors/contato.py:16
+msgid "Contato"
+msgstr ""
+
+#: v2tec/intranet/profiles.zcml:23
 msgid "Create example content to showcase the new website"
 msgstr ""
 
-#: v2tec/intranet/profiles.zcml:22
+#: v2tec/intranet/vocabularies/estados.py:15
+msgid "Distrito Federal"
+msgstr ""
+
+#: v2tec/intranet/behaviors/contato.py:23
+msgid "Email"
+msgstr ""
+
+#: v2tec/intranet/behaviors/endereco.py:14
+msgid "Endereço"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:16
+msgid "Espírito Santo"
+msgstr ""
+
+#: v2tec/intranet/behaviors/endereco.py:40
+msgid "Estado"
+msgstr ""
+
+#: v2tec/intranet/behaviors/endereco.py:30
+msgid "Ex. Anexo, Sala"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:17
+msgid "Goiás"
+msgstr ""
+
+#: v2tec/intranet/behaviors/configure.zcml:13
+msgid "Informações de Contato"
+msgstr ""
+
+#: v2tec/intranet/behaviors/configure.zcml:21
+msgid "Informações de Endereço"
+msgstr ""
+
+#: v2tec/intranet/behaviors/contato.py:30
+msgid "Informe o telefone de contato"
+msgstr ""
+
+#: v2tec/intranet/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Intranet"
+msgstr ""
+
+#: v2tec/intranet/profiles.zcml:23
 msgid "Intranet V2Tec: Example content"
 msgstr ""
 
-#: v2tec/intranet/profiles.zcml:13
+#: v2tec/intranet/profiles.zcml:14
 msgid "Intranet V2Tec: Install"
 msgstr ""
 
-#: v2tec/intranet/profiles.zcml:13
+#: v2tec/intranet/profiles.zcml:31
+msgid "Intranet V2Tec: Uninstall"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:18
+msgid "Maranhão"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:19
+msgid "Mato Grosso"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:20
+msgid "Mato Grosso do Sul"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:21
+msgid "Minas Gerais"
+msgstr ""
+
+#: v2tec/intranet/profiles.zcml:14
 msgid "Package to configure a new Intranet V2Tec site"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:24
+msgid "Paraná"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:23
+msgid "Paraíba"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:22
+msgid "Pará"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:25
+msgid "Pernambuco"
+msgstr ""
+
+#: v2tec/intranet/profiles/default/types/Pessoa.xml
+msgid "Pessoa"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/categorias.py:10
+msgid "Pessoa Jurídica"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:26
+msgid "Piauí"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:28
+msgid "Rio Grande do Norte"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:29
+msgid "Rio Grande do Sul"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:27
+msgid "Rio de Janeiro"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:30
+msgid "Rondônia"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:31
+msgid "Roraima"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:32
+msgid "Santa Catarina"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:34
+msgid "Sergipe"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:33
+msgid "São Paulo"
+msgstr ""
+
+#: v2tec/intranet/behaviors/contato.py:29
+msgid "Telefone"
+msgstr ""
+
+#: v2tec/intranet/vocabularies/estados.py:35
+msgid "Tocantins"
+msgstr ""
+
+#: v2tec/intranet/profiles/default/types/Pessoa.xml
+msgid "Uma Pessoa no V2Tec"
+msgstr ""
+
+#: v2tec/intranet/profiles/default/types/Area.xml
+msgid "Uma Área dentro da V2Tec"
+msgstr ""
+
+#: v2tec/intranet/profiles.zcml:31
+msgid "Uninstall Intranet V2Tec setup."
+msgstr ""
+
+#. Default: "Filtrar por Área."
+#: v2tec/intranet/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "description_area"
+msgstr ""
+
+#. Default: "Filtrar por categoria."
+#: v2tec/intranet/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "description_categoria"
+msgstr ""
+
+#. Default: "Área"
+#: v2tec/intranet/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "label_area"
+msgstr ""
+
+#. Default: "Categoria"
+#: v2tec/intranet/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "label_categoria"
+msgstr ""
+
+#: v2tec/intranet/content/pessoa.py:20
+#: v2tec/intranet/profiles/default/types/Area.xml
+msgid "Área"
 msgstr ""
